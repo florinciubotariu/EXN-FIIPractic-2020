@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ExnCars.Services.Users
 {
-  public class UserService
+  public class UserService : IUserService
   {
     private readonly ExnCarsContext _exnCarsContext;
 
@@ -32,34 +32,6 @@ namespace ExnCars.Services.Users
       }).ToList();
     }
 
-    //public IList<UserWithVehiclesDto> GetUserWithVehicles_BAD()
-    //{
-    //  var users = _exnCarsContext.Users.Include(u => u.UserVehicles).ToList();
 
-    //  var usersDtos = new List<UserWithVehiclesDto>();
-    //  foreach (var user in users)
-    //  {
-    //    var userDto = new UserWithVehiclesDto
-    //    {
-    //      Id = user.Id,
-    //      FullName = $"{user.FirstName} {user.LastName}",
-    //      Email = user.Email
-    //    };
-
-    //    foreach(var userVehicle in user.UserVehicles)
-    //    {
-    //      var vehicle = _exnCarsContext.Vehicles.FirstOrDefault(x => x.Id == userVehicle.VehicleId);
-    //      userDto.Vehicles.Add(new VehicleDataDto
-    //      {
-    //        Id = vehicle.Id,
-    //        VIN = vehicle.VIN
-    //      });
-    //    }
-
-    //    usersDtos.Add(userDto);
-    //  }
-
-    //  return usersDtos;
-    //}
   }
 }

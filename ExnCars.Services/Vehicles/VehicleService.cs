@@ -1,18 +1,24 @@
 ﻿using ExnCars.Data;
 using ExnCars.Data.Entities;
 using ExnCars.Services.Vehicles.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ExnCars.Services.Vehicles
 {
-  public class VehicleService
+  public class VehicleService : IVehicleService
   {
-    private readonly IRepository<Vehicle> _vehicleRepository;
+    private static int InstanceCount = 0;
 
-    public VehicleService(IRepository<Vehicle> vehicleRepo)
+    private readonly IRepository<Vehicle> _vehicleRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public VehicleService(IRepository<Vehicle> vehicleRepo, IUnitOfWork unitOfWork)
     {
+      InstanceCount++;
       _vehicleRepository = vehicleRepo;
+      _unitOfWork = unitOfWork;
     }
 
     public IList<VehicleDto> GetAll()
@@ -28,6 +34,27 @@ namespace ExnCars.Services.Vehicles
         ExteriorColor = v.VehicleDetail.ExteriorColor,
         InteriorColor = v.VehicleDetail.interiorColor
       }).ToList();
+    }
+
+    public void AddVehicle(VehicleBasicInfoDto vehicle)
+    {
+      if (vehicle == null) throw new ArgumentNullException(nameof(vehicle));
+
+      var vehicleEntity = new Vehicle
+      {
+        VIN = vehicle.VIN,
+        RegistrationDate = vehicle.RegistrationDate,
+        RegistrationNumber = vehicle.RegistrationNumber,
+        ModelId = vehicle.ModelId
+      };
+
+      _vehicleRepository.Add(vehicleEntity);
+      _unitOfWork.Commit();
+    }
+
+    public void ListInstanceCount()
+    {
+      Console.WriteLine($"\nVehicle Service Instance Count: {InstanceCount}.");
     }
   }
 }

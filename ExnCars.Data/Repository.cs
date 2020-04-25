@@ -21,17 +21,17 @@ namespace ExnCars.Data
 
     public void Add(T entity)
     {
-      throw new NotImplementedException();
+      _dbSet.Add(entity);
     }
 
     public void Delete(T entity)
     {
-      throw new NotImplementedException();
+      _dbSet.Remove(entity);
     }
 
     public void Delete(IEnumerable<T> entities)
     {
-      throw new NotImplementedException();
+      _dbSet.RemoveRange(entities);
     }
 
     public List<T> GetAll()
@@ -41,7 +41,7 @@ namespace ExnCars.Data
 
     public T GetById(int id)
     {
-      throw new NotImplementedException();
+      return _dbSet.Find(id);
     }
 
     public IQueryable<T> Query(Expression<Func<T, bool>> expression)
@@ -56,7 +56,8 @@ namespace ExnCars.Data
 
     public void Update(T entity)
     {
-      throw new NotImplementedException();
+      _dbSet.Attach(entity);
+      _exnCarsContext.Entry(entity).State = EntityState.Modified;
     }
   }
 }
