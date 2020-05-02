@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExnCars.Services.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,8 @@ namespace ExnCars.Web
       services
         .AddControllersWithViews()
         .AddRazorRuntimeCompilation();
+
+      DependencyMapper.MapDependencies(services);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
