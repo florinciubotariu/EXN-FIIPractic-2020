@@ -11,10 +11,6 @@ namespace ExnCars.TestConsole
   {
     static void Main(string[] args)
     {
-      //var context = new ExnCarsContext();
-      //var vehicleRepo = new Repository<Vehicle>(context);
-      //var unitOfWork = new UnitOfWork(context);
-      //var vehicleService = new VehicleService(vehicleRepo, unitOfWork);
 
       ServiceProvider serviceProvider = new ServiceCollection()
         .AddDbContext<ExnCarsContext>()
@@ -40,37 +36,7 @@ namespace ExnCars.TestConsole
         vehicleService.ListInstanceCount();
       }
 
-      //Context 2
-      using (var scope = serviceProvider.CreateScope())
-      {
-        vehicleService = scope.ServiceProvider.GetService<IVehicleService>();
-
-        var allVehicles = vehicleService.GetAll();
-
-        foreach (var vehicle in allVehicles)
-        {
-          Console.WriteLine($"[{vehicle.Id}] - {vehicle.ExteriorColor} - {vehicle.BrandName} {vehicle.ModelName} - {vehicle.VIN}");
-        }
-        vehicleService.ListInstanceCount();
-      }
-
       Console.WriteLine("All done!");
     }
-
-    //private static void ListAllVehicles(ServiceProvider serviceProvider)
-    //{
-    //  using (var scope = serviceProvider.CreateScope())
-    //  {
-    //    var vehicleService = scope.ServiceProvider.GetService<IVehicleService>();
-
-    //    var allVehicles = vehicleService.GetAll();
-
-    //    foreach (var vehicle in allVehicles)
-    //    {
-    //      Console.WriteLine($"[{vehicle.Id}] - {vehicle.ExteriorColor} - {vehicle.BrandName} {vehicle.ModelName} - {vehicle.VIN}");
-    //    }
-    //    vehicleService.ListInstanceCount();
-    //  }
-    //}
   }
 }

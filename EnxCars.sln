@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExnCars.Services", "ExnCars
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExnCars.TestConsole", "ExnCars.TestConsole\ExnCars.TestConsole.csproj", "{B9737B7A-8DCB-48A1-A562-8A1C60BC1F1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExnCars.Web", "ExnCars.Web\ExnCars.Web.csproj", "{CDE40D5E-2C3E-4C70-96C5-A17461826871}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExnCars.Web", "ExnCars.Web\ExnCars.Web.csproj", "{CDE40D5E-2C3E-4C70-96C5-A17461826871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExnCars.WebJob", "ExnCars.WebJob\ExnCars.WebJob.csproj", "{8D6BBE7A-5306-45F4-8FA6-F24DAD2EAAD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CDE40D5E-2C3E-4C70-96C5-A17461826871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDE40D5E-2C3E-4C70-96C5-A17461826871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDE40D5E-2C3E-4C70-96C5-A17461826871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6BBE7A-5306-45F4-8FA6-F24DAD2EAAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6BBE7A-5306-45F4-8FA6-F24DAD2EAAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6BBE7A-5306-45F4-8FA6-F24DAD2EAAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6BBE7A-5306-45F4-8FA6-F24DAD2EAAD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
