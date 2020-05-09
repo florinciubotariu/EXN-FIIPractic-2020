@@ -27,7 +27,7 @@ namespace ExnCars.Web
         .AddControllersWithViews()
         .AddRazorRuntimeCompilation();
 
-      DependencyMapper.MapDependencies(services);
+      DependencyMapper.MapDependencies(services ,Configuration);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
