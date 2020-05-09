@@ -18,7 +18,7 @@ namespace ExnCars.Services.Azure
 
         public AzureService()
         {
-            connectionString = "DefaultEndpointsProtocol=https;AccountName=exnstorage;AccountKey=9my2ak33qDJiicQcCuI481TKOKp8pVv0QbMXUVl75/1TElbFmWZqckeohuVuZQTfBixblR4/6qZxHxBWIM6dZw==;EndpointSuffix=core.windows.net";
+            connectionString = "MyConnectionStringStorage";
         }
 
         public UploadResult Upload(ContainerType containerType,Stream stream, string fileName)
